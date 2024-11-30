@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form AAS</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="kotaklogin">
+        <form id="form" action="POST">
+          <h2 align="center">Form Input Data Barang</h2>
+
+          <label for="kodeproduk"><b>Kode Produk</b></label>
+          <input
+            autocomplete="on"
+            type="text"
+            id="kodeproduk"
+            name=""
+            readonly
+            required
+          />
+          <label for="namaproduk"><b>Nama Produk</b></label>
+          <input
+            autocomplete="on"
+            type="text"
+            placeholder="Masukan Nama Produk"
+            id="nameProduk"
+            name=""
+            required
+          />
+
+          <label for="itemPrice">Harga Item</label> <br />
+          <span class="input-group-text">Rp.</span>
+          <input type="number" class="form-control" id="itemPrice" required />
+
+          <label for="itemPackaging">Kemasan Item:</label>
+          <select class="form-control" id="itemPackaging" required>
+            <option value="Gelas">Gelas</option>
+            <option value="Piring">Piring</option>
+            <option value="Botol">Botol</option>
+            <option value="Mangkok">Mangkok</option>
+          </select>
+
+          <label for="itemCategory">Kategori Item:</label>
+          <select class="form-control" id="itemCategory" required>
+            <option value="Makanan">Makanan</option>
+            <option value="Minuman">Minuman</option>
+          </select>
+
+          <label for="itemImageUrl">URL Gambar:</label>
+          <input
+            type="url"
+            class="form-control"
+            id="itemImageUrl"
+            placeholder="Masukkan URL gambar"
+            oninput="previewImage()"
+          />
+
+          <label for="stokawal">Stok Awal</label>
+          <input
+            type="number"
+            class="form-control"
+            id="stokawal"
+            required
+            oninput=""
+          />
+
+          <button type="button" class="button" onclick="saveFrom()">
+            Simpan
+          </button>
+        </form>
+      </div>
+    </div>
+    <div class="container-table">
+      <div class="kotaklogin">
+        <h2 class="judultable" align="center">Daftar Item</h2>
+        <table class="table" id="productTable">
+          <thead>
+            <tr>
+              <th>No</th>
+              <th>Kode Produk</th>
+              <th>Nama Produk</th>
+              <th>Harga Produk</th>
+              <th>Kemasan Item</th>
+              <th>Kategori Item</th>
+              <th>Gambar</th>
+              <th>Stok</th>
+              <th class="aksi">Aksi</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+
+    <script src="function.js"></script>
+  </body>
+</html>
