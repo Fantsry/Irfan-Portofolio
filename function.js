@@ -1,5 +1,5 @@
-let autoincrement = 1;
-let productArray = [];
+let autoincrement = 1; //buat MD
+let productArray = []; //array
 const productTable = document.getElementById("productTable");
 let currentEditIndex = null;
 
@@ -10,7 +10,7 @@ function saveFrom() {
   const itemCategory = document.getElementById("itemCategory").value;
   const itemImageUrl = document.getElementById("itemImageUrl").value;
   const stokawal = document.getElementById("stokawal").value;
-
+  // mode edit dan tambah
   if (currentEditIndex !== null) {
     productArray[currentEditIndex] = {
       kodeproduk: productArray[currentEditIndex].kodeproduk, // buat si kode produk tetep nomernya pas diedit *om radit
@@ -42,7 +42,7 @@ function saveFrom() {
 function renderTable() {
   const tablebody = productTable.getElementsByTagName("tbody")[0];
   let rownumber = 1;
-  validate_kategory = tablebody.innerHTML = "";
+  tablebody.innerHTML = ""; //biar ga ketumpuk arraynya
   productArray.forEach((product) => {
     const row = tablebody.insertRow();
     row.innerHTML = `
@@ -74,18 +74,18 @@ function renderTable() {
     }
   });
 }
-
+//delete
 function deleteProduct(kodeproduk) {
   if (confirm("Apakah Anda yakin ingin menghapus produk ini?")) {
     productArray = productArray.filter(
       (product) => product.kodeproduk !== kodeproduk
-    );
+    ); //hapus dari array dengan kode prdouctnya
     renderTable();
   }
 }
 
 function editProduct(kodeproduk) {
-  const product = productArray.find((p) => p.kodeproduk === kodeproduk);
+  const product = productArray.find((p) => p.kodeproduk === kodeproduk); //cari produk berdasarkan kode
   if (product) {
     document.getElementById("kodeproduk").value = product.kodeproduk;
     document.getElementById("nameProduk").value = product.nameProduk;
@@ -94,7 +94,7 @@ function editProduct(kodeproduk) {
     document.getElementById("itemCategory").value = product.itemCategory;
     document.getElementById("itemImageUrl").value = product.itemImageUrl;
     document.getElementById("stokawal").value = product.stokawal;
-    currentEditIndex = productArray.indexOf(product);
+    currentEditIndex = productArray.indexOf(product); //cari nilai buat Currenteditindex
   }
 }
 
