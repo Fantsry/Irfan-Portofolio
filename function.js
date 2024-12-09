@@ -36,7 +36,7 @@ function saveFrom() {
   }
 
   renderTable();
-  document.getElementById("kodeproduk").value = "MD-0" + autoincrement;
+  document.getElementById("kodeproduk").value = "MD-0" + autoincrement; //update MD
 }
 
 function renderTable() {
@@ -67,7 +67,7 @@ function renderTable() {
         </td>
       </tr>
     `;
-    tablebody.appendChild(row);
+    tablebody.appendChild(row); //nambah row baru klo ada yang baru
     if (product.stokawal < 5) {
       const simerah = row.cells[7];
       simerah.classList.add("low-stock");
@@ -98,4 +98,4 @@ function editProduct(kodeproduk) {
   }
 }
 
-document.getElementById("kodeproduk").value = "MD-0" + autoincrement;
+document.getElementById("kodeproduk").value = "MD-0" + autoincrement; //pertama kali dibuka
